@@ -1,9 +1,7 @@
 var btn = document.getElementById("theme-button");
 var link = document.getElementById("theme-link");
 
-var busy = false;
-
-btn.onclick = ChangeTheme;
+btn.addEventListener("click", function () { ChangeTheme(); });
 
 function ChangeTheme()
 {
@@ -32,21 +30,7 @@ function ChangeTheme()
 
 function Save(theme)
 {
-	if(!busy)
-	{
-		var Request = new XMLHttpRequest();
-		Request.open("GET", "./themes.php?theme=" + theme, true);
-
-		Request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		
-		Request.addEventListener("readystatechange", function (e)
-		{
-			console.log("aaa");
-			busy = false;
-		});
-
-		busy = true;
-		Request.send();
-	}
-	
+	var Request = new XMLHttpRequest();
+	Request.open("GET", "./themes.php?theme=" + theme, true);
+	Request.send();
 }

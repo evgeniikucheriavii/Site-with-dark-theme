@@ -5,8 +5,8 @@ if(!isset($_SESSION["theme"]))
 {
 	$_SESSION["theme"] = "light";
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 	<head>
